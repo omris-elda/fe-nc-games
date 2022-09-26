@@ -5,7 +5,7 @@ export default function ReviewCard({ review }) {
     <li className="review-container" key={review.review_id}>
           <h3 className="review-title">{review.title}</h3>
           <div className="review-body">
-            <p>{review.review_body}</p>
+            <p className="review-text">{review.review_body}</p>
             <img src={review.review_img_url} alt={`For review ${review.title}`} className="review-image"/>
           </div>
           {/* add link to review owners profile here! */}
