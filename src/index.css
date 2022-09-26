@@ -5,6 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FFDCDC;
+  color: #769FCD;
+
+}
+
+a {
+  text-decoration: none;
+  color: #769FCD;
+}
+
+li, ol, ul {
+  list-style: none;
+}
+
+hr {
+  border: 1px solid white;
+  width: 100%;
 }
 
 code {
