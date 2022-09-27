@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+ul {
+  padding-inline-start: 0;
+}
 
 /* review pages */
 .readmore {
@@ -9,7 +12,7 @@
 }
 @media only screen and (max-width: 600px) {
 
-  .review-container {
+  .review-item {
     max-width: 90%;
   }
   .review-body {
@@ -26,7 +29,7 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .review-container {
+  .review-item {
     display: flex;
     flex-direction: column;
     max-width: 80%;
@@ -83,3 +86,14 @@
   
 }
 
+/* Categories */
+
+.category-container {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-slug {
+  text-transform: capitalize;
+}

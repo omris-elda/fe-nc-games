@@ -9,6 +9,9 @@ export default function NavBar() {
         <button className="buttons" onClick={() => navigate("/reviews")}>
           Reviews
         </button>
+        <button className="buttons" onClick={() => navigate("/categories")}>
+          Categories
+        </button>
       </nav>
     );
 }
