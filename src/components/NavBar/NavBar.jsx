@@ -5,9 +5,16 @@ export default function NavBar() {
     const navigate = useNavigate();
 
     return (
-        <nav>
-            <button className="buttons" onClick={() => navigate("/users")}>Users</button>
-            <button className="buttons" onClick={()=> navigate("/games")}>Games</button>
-        </nav>
+      <nav>
+        <button className="buttons" onClick={() => navigate("/users")}>
+          Users
+        </button>
+        <button className="buttons" onClick={() => navigate("/games")}>
+          Games
+        </button>
+        <button className="buttons" onClick={() => navigate("/reviews")}>
+          Reviews
+        </button>
+      </nav>
     );
 }

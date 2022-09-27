@@ -1,21 +1,22 @@
 import GetReviews from "../queries/queries";
 import { useState, useEffect } from "react";
 import ReviewCard from "../ReviewCard/ReviewCard";
+import { useParams } from "react-router-dom";
+
 
 export default function Reviews() {
 
     const [loading, setLoading] = useState(true);
     const [reviewsList, setReviewsList] = useState([]);
+    const { category } = useParams();
 
     useEffect(() => {
         setLoading(true);
-        console.log("inside of the reviews useeffect");
-        GetReviews().then((response) => {
-            console.log(response.reviews)
+        GetReviews(category).then((response) => {
             setLoading(false);
             return setReviewsList(response.reviews);
         });
-    }, [])
+    }, [category])
     
     if (loading) {
         return (<h2>Loading...</h2>)

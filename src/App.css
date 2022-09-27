@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+
+/* review pages */
+.readmore {
+  text-decoration: underline;
+}
 @media only screen and (max-width: 600px) {
 
   .review-container {
@@ -9,15 +14,15 @@
   }
   .review-body {
     display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
   }
   .review-image {
     grid-row: 1;
+    grid-column: 1;
     max-width: 100%;
   }
-  .review-text {
-    grid-row: 2;
-  }
+
 }
 
 @media only screen and (min-width: 600px) {
@@ -35,16 +40,46 @@
   .review-author, .review-title {
     text-align: left;
   }
-
-  .review-body {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    column-gap: 20px;
-  }
-
   .review-image {
     max-width: 100%;
     margin-top: 1em;
+    grid-column: 2;
+    
   }
+  
+  .review-inner {
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+    grid-template-columns: 1fr 1fr;
+  }
+  .review-body {
+    display: grid;
+    column-gap: 20px;
+  }
+  .review-text {
+    grid-column: 1 / span 2;
+  }
+  .review-votes {
+    grid-column: 1;
+  }
+  .review-comment-count {
+    grid-column: 2;
+    text-align: right;
+  }
+  .review-footer {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+  .review-author {
+    grid-column: 1;
+    text-align: left;
+  }
+  .review-category {
+    grid-column: 2;
+    text-align: right;
+  }
+  
 }
 
