@@ -6,12 +6,6 @@ export default function NavBar() {
 
     return (
       <nav>
-        <button className="buttons" onClick={() => navigate("/users")}>
-          Users
-        </button>
-        <button className="buttons" onClick={() => navigate("/games")}>
-          Games
-        </button>
         <button className="buttons" onClick={() => navigate("/reviews")}>
           Reviews
         </button>
