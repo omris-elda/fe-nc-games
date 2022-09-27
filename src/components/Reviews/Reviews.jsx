@@ -21,7 +21,6 @@ export default function Reviews() {
     if (loading) {
         return (<h2>Loading...</h2>)
     } else {
-        console.log("Inside the else");
         return (
             <section>
                 <div className="review-container">

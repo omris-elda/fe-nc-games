@@ -7,7 +7,7 @@ export default function ReviewCard({ review }) {
     for (let i = 0; i < divs.length; i++) {
         if (divs[i].innerHTML.length > 150) {
             divs[i].innerHTML =
-            divs[i].innerHTML.substring(0, 150) + "... " + '<a href="#" class="readmore">Read more</a>';
+            divs[i].innerHTML.substring(0, 150) + `... <a href="#" class="readmore">Read more</a>`;
         }
     }
 
