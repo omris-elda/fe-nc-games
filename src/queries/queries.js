@@ -4,16 +4,17 @@ const instance = axios.create({
     baseURL: 'https://omris-be-nc-games.herokuapp.com/api/',
 });
 
-export default function GetReviews(category) {
+export function GetReviews(category) {
 
     let endpoint = "/reviews";
-
-    // if (category) {
-    //     endpoint = `/reviews?category=${category}`;
-    // }
+    console.log(category)
+    // const endpoint = `/reviews?category=${category}`;
+    if (category) {
+    }
 
     return instance.get(endpoint, { params: {category: category} })
         .then((res) => {
+            console.log(res);
             return res.data;
         })
         .catch((error) => {
@@ -21,3 +22,15 @@ export default function GetReviews(category) {
     })
 }
 
+
+export function GetCategories() {
+    return instance.get("/categories")
+    .then((res) => {
+            return res.data;
+        })
+        .catch((error) => {
+            console.log(error);
+    })
+}
+
+// export default {GetReviews, GetCategories}
