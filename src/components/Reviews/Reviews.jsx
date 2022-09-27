@@ -1,4 +1,4 @@
-import GetReviews from "../queries/queries";
+import GetReviews from "../../queries/queries";
 import { useState, useEffect } from "react";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import { useParams } from "react-router-dom";
