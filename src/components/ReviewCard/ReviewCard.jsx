@@ -7,12 +7,12 @@ export default function ReviewCard({ review }) {
     for (let i = 0; i < divs.length; i++) {
         if (divs[i].innerHTML.length > 150) {
             divs[i].innerHTML =
-            divs[i].innerHTML.substring(0, 150) + `... <a href="#" class="readmore">Read more</a>`;
+            divs[i].innerHTML.substring(0, 150) + `... <a href="/reviews/${review.review_id}" class="readmore">Read more</a>`;
         }
     }
 
   return (
-    <li className="review-item" key={review.review_id}>
+    <li className="review-item" id={review.review_id} key={review.review_id}>
       <h3 className="review-title">{review.title}</h3>
       <div className="review-body">
           <img src={review.review_img_url} alt={`For review ${review.title}`} className="review-image" />
