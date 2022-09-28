@@ -13,7 +13,7 @@ export default function ReviewCard({ review }) {
 
   return (
     <li className="review-item" id={review.review_id} key={review.review_id}>
-      <h3 className="review-title">{review.title}</h3>
+      <h3 className="review-title"><Link to={ `/reviews/${review.review_id}` }>{review.title}</Link></h3>
       <div className="review-body">
           <img src={review.review_img_url} alt={`For review ${review.title}`} className="review-image" />
           <div className="review-inner">
