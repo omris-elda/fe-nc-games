@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import {
-  Header, NavBar, Reviews, Home, Categories
+  Header, NavBar, Reviews, Home, Categories, IndvReview
 } from "./components"
 
 
@@ -20,6 +20,7 @@ function App() {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/reviews/category/:category" element={<Reviews />} />
+        <Route path="/reviews/:review_id" element={<IndvReview />} />
       </Routes>
 
     </div>
