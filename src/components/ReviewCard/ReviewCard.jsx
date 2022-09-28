@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import { PatchReviewVote } from "../";
 export default function ReviewCard({ review }) {
 
     // this cuts off the body if it is longer than 150 chars and adds a read more link
@@ -18,8 +18,10 @@ export default function ReviewCard({ review }) {
           <img src={review.review_img_url} alt={`For review ${review.title}`} className="review-image" />
           <div className="review-inner">
             <p className="review-text">{review.review_body}</p>
+            
             {/* functionality for upvoting? */}
-            <p className="review-votes">Votes: {review.votes}</p>
+            <PatchReviewVote review_id={review.review_id} votes={review.votes} />
+
             <p className="review-comment-count">Comments: {review.comment_count}</p>
           </div>
         </div>

@@ -56,4 +56,16 @@ export function GetComments(review_id) {
     })
 }
 
+// add/remove votes to a review
+export function PatchReviewVotes(review_id, vote) {
+
+    return instance.patch(`reviews/${review_id}`, { inc_votes: vote })
+    .then((res) => {
+            return res.data;
+        })
+        .catch((error) => {
+            console.log(error);
+    })
+}
+
 // export default {GetReviews, GetCategories}
