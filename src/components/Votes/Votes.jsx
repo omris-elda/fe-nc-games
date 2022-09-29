@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PatchReviewVotes } from "../../queries/queries";
+import { patchReviewVotes } from "../../queries/queries";
 
 export default function Votes({ review_id, votes }) {
   const [vote, setVote] = useState(votes);
@@ -8,11 +8,11 @@ export default function Votes({ review_id, votes }) {
     if (input < 0) {
       if (vote > 0) {
         setVote((vote) => vote + input);
-        PatchReviewVotes(review_id, input);
+        patchReviewVotes(review_id, input);
       }
     } else {
       setVote((vote) => vote + input);
-      PatchReviewVotes(review_id, input);
+      patchReviewVotes(review_id, input);
     }
   }
 

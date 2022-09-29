@@ -5,7 +5,7 @@ export default function CategoryCard({ category }) {
     const newslug = category.slug.replaceAll("-", " ");
 
     return (
-        <li className="category-item" id={category.slug} key={category.slug}>
+        <div>
         <h2 className="category-slug">
             <Link to={`/reviews/category/${category.slug}`}>
               {newslug}
@@ -13,6 +13,6 @@ export default function CategoryCard({ category }) {
         </h2>
             <p>{category.description}</p>
             <hr/>
-      </li>
+      </div>
     );
 }

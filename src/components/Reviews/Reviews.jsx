@@ -1,4 +1,4 @@
-import {GetReviews} from "../../queries/queries";
+import {getReviews} from "../../queries/queries";
 import { useState, useEffect } from "react";
 import {ReviewCard} from "../";
 import { useParams } from "react-router-dom";
@@ -13,7 +13,7 @@ export default function Reviews() {
     useEffect(() => {
         setLoading(true);
 
-        GetReviews(category).then((response) => {
+        getReviews(category).then((response) => {
             setLoading(false);
             return setReviewsList(response.reviews);
         });

@@ -1,28 +1,54 @@
 import { useContext, useState } from "react";
 import { LoggedIn } from "../../contexts/loggedin";
+import { postComment } from "../../queries/queries";
+import { Link } from "react-router-dom";
 
+export default function AddComment({ review_id, setComments }) {
+    
+  const { loggedIn } = useContext(LoggedIn);
+  const [newCommentText, setNewCommentText] = useState("");
+  const [loading, setLoading] = useState(false);
 
-export default function AddComment(review_id) {
-    const { loggedIn } = useContext(LoggedIn);
-    const [newComment, setNewComment] = useState({})
-    const [loading, setLoading] = useState(true);
+  let newComment = {};
 
-    const handleSubmit = (e) => {
-
-    }
-
-    if (loggedIn === "") {
-        return (
-            <h3>Sorry, you have to be logged in to post a new comment.</h3>
-        )
-    } else if (loading) {
-        return <h3>Posting your comment...</h3>
-    } else {
-        
-        return (
-            <form id="add-new-comment" onSubmit={handleSubmit}>
-                <input type="multiline" />
-            </form>
-        );
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    newComment = {
+      username: loggedIn,
+      body: newCommentText,
+      review_id: review_id.comment_id,
+    };
+    postComment(newComment).then((response) => {
+        setLoading(false);
+        console.log("Success!")
+        setComments((currComments) => {
+            newComment.author = loggedIn;
+            newComment.votes = 0;
+            setNewCommentText("");
+            return [...currComments, newComment]
+        })
+    });
+  };
+  // username: happyamy2016
+    
+  if (loggedIn === "") {
+    return <h3><Link to="/login">Sorry, you have to be logged in to post a new comment.</Link></h3>;
+  } else if (loading) {
+    return <h3>Posting your comment...</h3>;
+  } else {
+    return (
+      <form id="add-new-comment" onSubmit={handleSubmit}>
+        <label htmlFor="new-comment-text" className="new-comment-label">New Comment: </label>
+        <textarea
+          id="new-comment-text"
+          name="new-comment-text"
+          value={newCommentText}
+          onChange={(e) => setNewCommentText(e.target.value)}
+          required
+        />
+        <button type="submit">Post Comment</button>
+      </form>
+    );
+  }
 }

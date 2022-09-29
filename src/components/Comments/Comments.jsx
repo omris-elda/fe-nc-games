@@ -1,4 +1,4 @@
-import { GetComments } from "../../queries/queries";
+import { getComments } from "../../queries/queries";
 import { useState, useEffect } from "react";
 import { CommentCard, AddComment } from "../"
 
@@ -8,7 +8,7 @@ export default function Comments(review_id) {
 
     useEffect(() => {
       setLoading(true);
-      GetComments(review_id).then((response) => {
+      getComments(review_id).then((response) => {
         setLoading(false);
         return setComments(response.comments);
       });
@@ -20,11 +20,15 @@ export default function Comments(review_id) {
         return (
           <div className="comment-container">
             <h3 className="comment-title">Comments:</h3>
-            <AddComment review_id={review_id} />
+            <AddComment review_id={review_id} setComments={setComments} />
             <ul>
               <hr />
               {comments.map((comment) => {
-                return <CommentCard comment={comment} />;
+                return (
+                  <li key={comment.comment_id}>
+                    <CommentCard comment={comment} />
+                  </li>
+                );
               })}
             </ul>
           </div>

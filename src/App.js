@@ -8,7 +8,7 @@ import {
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState("");
+  const [loggedIn, setLoggedIn] = useState("happyamy2016");
 
   return (
     <LoggedIn.Provider value={{loggedIn, setLoggedIn}} >
