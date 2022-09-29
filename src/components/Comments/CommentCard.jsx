@@ -8,7 +8,6 @@ export default function CommentCard(comment) {
         </h4>
         <p>{comment.comment.body}</p>
         <p>Votes: {comment.comment.votes}</p>
-        {/* <p>Posted on: {comment.comment.created_at}</p> */}
         <hr />
       </section>
     );

@@ -17,7 +17,6 @@ function App() {
       <Header />
       <NavBar />
 
-      {/* routing goes here */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/reviews" element={<Reviews />} />
