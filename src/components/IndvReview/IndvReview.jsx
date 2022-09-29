@@ -1,21 +1,18 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GetReviews } from "../../queries/queries";
-import { Comments } from "../";
+import { Comments, Votes } from "../";
 import { Link } from "react-router-dom";
 export default function IndvReview() {
 
     const [loading, setLoading] = useState(true);
     const [review, setReview] = useState([]);
     const { review_id } = useParams();
-    console.log(review_id, "Review ID in IndvReview")
-
 
     useEffect(() => {
         setLoading(true);
         GetReviews(null, review_id).then((response) => {
             setLoading(false);
-            console.log(response, "Review")
             return setReview(response.review);
         });
     }, [review_id])
@@ -33,10 +30,9 @@ export default function IndvReview() {
             <p className="indv-review-body">{review.review_body}</p>
             <p className="indv-review-author">
               <Link to={`/users/${review.owner}`}>By: {review.owner}</Link>
-            </p>
-                <p className="indv-review-votes">Votes: {review.votes}</p>
+                </p>
+                <Votes review_id={review.review_id} votes={review.votes} />
 
-                <h3 className="comment-title">Comments:</h3>
             <Comments comment_id={review_id} />
           </section>
         );

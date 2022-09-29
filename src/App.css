@@ -181,3 +181,9 @@ ul {
     grid-column: 1 / span 2;
   }
 }
+
+.votes-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

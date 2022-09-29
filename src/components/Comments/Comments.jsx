@@ -1,6 +1,6 @@
 import { GetComments } from "../../queries/queries";
 import { useState, useEffect } from "react";
-import { CommentCard } from "../"
+import { CommentCard, AddComment } from "../"
 
 export default function Comments(review_id) {
     const [comments, setComments] = useState([]);
@@ -18,12 +18,16 @@ export default function Comments(review_id) {
         return (<h2>Loading...</h2>)
     } else {
         return (
-          <ul className="comment-container">
-            <hr />
-            {comments.map((comment) => {
-              return <CommentCard comment={comment} />;
-            })}
-          </ul>
+          <div className="comment-container">
+            <h3 className="comment-title">Comments:</h3>
+            <AddComment review_id={review_id} />
+            <ul>
+              <hr />
+              {comments.map((comment) => {
+                return <CommentCard comment={comment} />;
+              })}
+            </ul>
+          </div>
         );
     }
 }
