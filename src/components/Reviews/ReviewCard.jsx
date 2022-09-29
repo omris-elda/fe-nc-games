@@ -12,7 +12,7 @@ export default function ReviewCard({ review }) {
     }
 
   return (
-    <li className="review-item" id={review.review_id} key={review.review_id}>
+    <div>
       <h3 className="review-title"><Link to={ `/reviews/${review.review_id}` }>{review.title}</Link></h3>
       <div className="review-body">
           <img src={review.review_img_url} alt={`For review ${review.title}`} className="review-image" />
@@ -29,7 +29,7 @@ export default function ReviewCard({ review }) {
           <p className="review-author"><Link to={`/users/${review.owner}`} >By: {review.owner}</Link></p>
           <p className="review-category"><Link to={`/reviews/category/${review.category}`} >Category: {review.category}</Link></p>
         </div>
-          <hr/>
-    </li>
+      <hr />
+    </div>
   );
 }

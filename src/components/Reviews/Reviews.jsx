@@ -1,6 +1,6 @@
 import {GetReviews} from "../../queries/queries";
 import { useState, useEffect } from "react";
-import ReviewCard from "../ReviewCard/ReviewCard";
+import {ReviewCard} from "../";
 import { useParams } from "react-router-dom";
 
 
@@ -27,7 +27,9 @@ export default function Reviews() {
             {
                 reviewsList.map((review) => {
                     return (
-                        <ReviewCard review={review} />
+                        <li className="review-item" id={review.review_id} key={review.review_id}>
+                            <ReviewCard review={review} />
+                        </li>
                     )
                 })
             }

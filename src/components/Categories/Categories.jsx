@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {GetCategories} from "../../queries/queries";
-import CategoryCard from "../CategoryCard/CategoryCard";
+import {CategoryCard} from "../";
 
 export default function Categories() {
     const [categories, setCategories] = useState([]);

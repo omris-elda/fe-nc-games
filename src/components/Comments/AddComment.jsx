@@ -11,6 +11,10 @@ export default function AddComment(review_id) {
         )
     } else {
         
-        return null;
+        return (
+            <form action="">
+                <input type="multiline" />
+            </form>
+        );
     }
 }

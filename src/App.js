@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import { LoggedIn } from './contexts/loggedin';
 import {
-  Header, NavBar, Reviews, Home, Categories, IndvReview
+  Header, NavBar, Reviews, Home, Categories, IndvReview, Login
 } from "./components";
 
 
@@ -23,7 +23,8 @@ function App() {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/reviews/category/:category" element={<Reviews />} />
-        <Route path="/reviews/:review_id" element={<IndvReview />} />
+          <Route path="/reviews/:review_id" element={<IndvReview />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
 
       </div>

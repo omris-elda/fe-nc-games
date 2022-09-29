@@ -59,4 +59,13 @@ export function PatchReviewVotes(review_id, vote) {
     })
 }
 
-// export default {GetReviews, GetCategories}
+export function GetUsers() {
+    return instance.get("users")
+    .then((res) => {
+            return res.data;
+        })
+        .catch((error) => {
+            console.log(error);
+    })
+}
+
