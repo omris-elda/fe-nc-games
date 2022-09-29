@@ -28,7 +28,6 @@ export default function ReviewCard({ review }) {
           </div>
         </div>
         <div className="review-footer">
-          {/* add link to review owners profile here! */}
           <p className="review-author"><Link to={`/users/${review.owner}`} >By: {review.owner}</Link></p>
           <p className="review-category"><Link to={`/reviews/category/${review.category}`} >Category: {review.category}</Link></p>
         </div>
