@@ -1,14 +1,17 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
+import { useState } from 'react';
+import { LoggedIn } from './contexts/loggedin';
 import {
   Header, NavBar, Reviews, Home, Categories, IndvReview
-} from "./components"
+} from "./components";
 
 
 function App() {
-
+  const [loggedIn, setLoggedIn] = useState("");
 
   return (
+    <LoggedIn.Provider value={{loggedIn, setLoggedIn}} >
     <div className="App">
 
       <Header />
@@ -23,7 +26,8 @@ function App() {
         <Route path="/reviews/:review_id" element={<IndvReview />} />
       </Routes>
 
-    </div>
+      </div>
+      </LoggedIn.Provider>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { PatchReviewVotes } from "../../queries/queries";
 
-export default function PatchReviewVote({review_id, votes}) {
+export default function Votes({review_id, votes}) {
     const [vote, setVote] = useState(votes);
 
     const HandleUpvote = (e) => {
@@ -15,10 +15,6 @@ export default function PatchReviewVote({review_id, votes}) {
 
     const HandleDownvote = (e) => {
       e.preventDefault();
-      if (!review_id) {
-        console.log("You shouldn't be seeing this, something has gone horribly wrong!");
-        return null;
-      }
       setVote((vote) => vote - 1);
       PatchReviewVotes(review_id, -1);
     };

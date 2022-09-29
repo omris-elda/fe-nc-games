@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GetReviews } from "../../queries/queries";
-import { Comments, PatchReviewVote } from "../";
+import { Comments, Votes } from "../";
 import { Link } from "react-router-dom";
 export default function IndvReview() {
 
@@ -31,12 +31,9 @@ export default function IndvReview() {
             <p className="indv-review-author">
               <Link to={`/users/${review.owner}`}>By: {review.owner}</Link>
                 </p>
-                <PatchReviewVote review_id={review.review_id} votes={review.votes} />
-                {/* <p className="indv-review-votes">Votes: {review.votes}</p> */}
+                <Votes review_id={review.review_id} votes={review.votes} />
 
-
-                {/* <h3 className="comment-title">Comments:</h3> */}
-            {/* <Comments comment_id={review_id} /> */}
+            <Comments comment_id={review_id} />
           </section>
         );
     }

@@ -13,7 +13,6 @@ export default function Reviews() {
     useEffect(() => {
         setLoading(true);
 
-        console.log(category + "<--category")
         GetReviews(category).then((response) => {
             setLoading(false);
             return setReviewsList(response.reviews);

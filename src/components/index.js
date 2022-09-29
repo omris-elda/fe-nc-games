@@ -6,7 +6,8 @@ import Categories from "./Categories/Categories";
 import IndvReview from "./IndvReview/IndvReview";
 import CommentCard from "./CommentCard/CommentCard";
 import Comments from "./Comments/Comments";
-import PatchReviewVote from "./PatchReviewVote/PatchReviewVote";
+import Votes from "./Votes/Votes";
+import AddComment from "./AddComment/AddComment";
 
 
-export {Header, NavBar, Reviews, Home, Categories, IndvReview, CommentCard, Comments, PatchReviewVote}
+export {Header, NavBar, Reviews, Home, Categories, IndvReview, CommentCard, Comments, Votes, AddComment}
