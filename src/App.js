@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import { LoggedIn } from './contexts/loggedin';
 import {
-  Header, NavBar, ReviewList, Home, Categories, IndvReview, Login
+  Header, NavBar, ReviewList, Home, Categories, IndvReview, Login, MissingPage
 } from "./components";
 
 
@@ -23,7 +23,8 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/reviews/category/:category" element={<ReviewList />} />
           <Route path="/reviews/:review_id" element={<IndvReview />} />
-        <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<MissingPage />} />
       </Routes>
 
       </div>
