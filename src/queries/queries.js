@@ -6,18 +6,10 @@ const instance = axios.create({
 
 export function getReviews(category, review_id, sortBy, orderBy) {
 
-    const params = {
-        category: category,
-        sortBy: sortBy,
-        orderBy: orderBy,
-    }
-
     let endpoint = "/reviews";
     if (review_id) {
         endpoint += `/${review_id}`
     }
-
-
 
     return instance.get(endpoint, {params: { category: category, order: orderBy, sort_by: sortBy}})
         .then((res) => {
@@ -27,7 +19,6 @@ export function getReviews(category, review_id, sortBy, orderBy) {
             console.log(error);
     })
 }
-
 
 export function getCategories() {
     return instance.get("/categories")
