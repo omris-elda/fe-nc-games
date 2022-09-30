@@ -1,26 +1,34 @@
 import { getComments } from "../../queries/queries";
 import { useState, useEffect } from "react";
-import { CommentCard, AddComment } from "../"
+import { CommentCard, AddComment, GenericError } from "../"
 
 export default function Comments(review_id) {
     const [comments, setComments] = useState([]);
     const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
     useEffect(() => {
       setLoading(true);
       getComments(review_id).then((response) => {
-        setLoading(false);
-        return setComments(
-          response.comments
-        );
+        if (comments.length === 0) {
+          setError("No review with that ID found.")
+        } else {
+          setLoading(false);
+          return setComments(
+            response.comments
+          );
+        }
       });
     }, [review_id]);
   
     const deleteComment = (e) => {
       setLoading(true);
       return null;
-    };
+  };
   
+  if (error) {
+    return <GenericError error={error} />;
+  }  
     if (loading) {
         return (<h2>Loading...</h2>)
     } else {

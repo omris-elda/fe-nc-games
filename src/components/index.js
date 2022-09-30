@@ -13,6 +13,7 @@ import ReviewCard from "./Reviews/ReviewCard";
 import Login from "./Login/Login";
 import SortReview from "./Reviews/SortReview";
 import ReviewList from "./Reviews/ReviewList";
-import MissingPage from "./404/404";
+import MissingPage from "./Errors/404";
+import GenericError from "./Errors/GenericError";
 
-export {Header, NavBar, Reviews, ReviewCard, Home, Categories, CategoryCard, IndvReview, CommentCard, Comments, Votes, AddComment, Login, SortReview, ReviewList, MissingPage}
+export {Header, NavBar, Reviews, ReviewCard, Home, Categories, CategoryCard, IndvReview, CommentCard, Comments, Votes, AddComment, Login, SortReview, ReviewList, MissingPage, GenericError}

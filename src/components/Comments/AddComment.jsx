@@ -2,12 +2,14 @@ import { useContext, useState } from "react";
 import { LoggedIn } from "../../contexts/loggedin";
 import { postComment } from "../../queries/queries";
 import { Link } from "react-router-dom";
+import { GenericError } from "../"
 
 export default function AddComment({ review_id, setComments }) {
     
   const { loggedIn } = useContext(LoggedIn);
   const [newCommentText, setNewCommentText] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   let newComment = {};
 
@@ -20,16 +22,25 @@ export default function AddComment({ review_id, setComments }) {
       review_id: review_id.comment_id,
     };
     postComment(newComment).then((response) => {
-        setLoading(false);
+      setLoading(false);
+      if (response.status === 201) {
+        
         setComments((currComments) => {
-            newComment.author = loggedIn;
-            newComment.votes = 0;
-            setNewCommentText("");
-            return [...currComments, newComment]
+          newComment.author = loggedIn;
+          newComment.votes = 0;
+          setNewCommentText("");
+          return [...currComments, response.comment]
         })
+      } else {
+        setError(response.msg);
+      }
     });
   };
-    
+  
+  if (error) {
+    return <GenericError error={error} />
+  }
+
   if (loggedIn === "") {
     return <h3><Link to="/login">Sorry, you have to be logged in to post a new comment.</Link></h3>;
   } else if (loading) {
