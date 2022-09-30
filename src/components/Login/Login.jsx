@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { LoggedIn } from "../../contexts/loggedin";
-import { GetUsers } from "../../queries/queries";
+import { getUsers } from "../../queries/queries";
 
 export default function Login() {
     const { loggedIn, setLoggedIn } = useContext(LoggedIn);
@@ -9,7 +9,7 @@ export default function Login() {
     const [loginUsername, setLoginUsername] = useState("");
     
     useEffect(() => {
-        GetUsers().then((response) => {
+        getUsers().then((response) => {
             return setUserList(response.users);
         });
     }, []);

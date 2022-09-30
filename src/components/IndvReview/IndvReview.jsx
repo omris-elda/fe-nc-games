@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { GetReviews } from "../../queries/queries";
+import { getReviews } from "../../queries/queries";
 import { Comments, Votes } from "../";
 import { Link } from "react-router-dom";
 export default function IndvReview() {
@@ -11,7 +11,7 @@ export default function IndvReview() {
 
     useEffect(() => {
         setLoading(true);
-        GetReviews(null, review_id).then((response) => {
+        getReviews(null, review_id).then((response) => {
             setLoading(false);
             return setReview(response.review);
         });

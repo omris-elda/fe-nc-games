@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {GetCategories} from "../../queries/queries";
+import {getCategories} from "../../queries/queries";
 import {CategoryCard} from "../";
 
 export default function Categories() {
@@ -9,7 +9,7 @@ export default function Categories() {
 
     useEffect(() => {
         setLoading(true);
-        GetCategories().then((response) => {
+        getCategories().then((response) => {
           setLoading(false);
           return setCategories(response.categories);
         });
@@ -21,7 +21,11 @@ export default function Categories() {
         return (
           <ul className="category-container">
             {categories.map((category) => {
-              return <CategoryCard category={category} />;
+              return (
+                <li className="category-item" id={category.slug} key={category.slug}>
+                  <CategoryCard category={category} />
+                  </li>
+                )
             })}
           </ul>
         );

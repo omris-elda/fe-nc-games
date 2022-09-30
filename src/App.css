@@ -187,3 +187,8 @@ ul {
   justify-content: space-between;
   align-items: center;
 }
+
+#new-comment-text {
+  width: 100%;
+  min-height: 5rem;
+}
