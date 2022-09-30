@@ -9,8 +9,8 @@ export default function Reviews() {
     const [loading, setLoading] = useState(true);
     const [reviewsList, setReviewsList] = useState([]);
     const { category } = useParams();
-    const [sortBy, setSortBy] = useState("");
-    const [orderBy, setOrderBy] = useState("");
+    const [sortBy, setSortBy] = useState("date");
+    const [orderBy, setOrderBy] = useState("asc");
 
 
     useEffect(() => {
@@ -39,10 +39,11 @@ export default function Reviews() {
               </option>
               <option key="votes" value="votes">
                 Votes
-              </option>
-              <option key="comment_count" value="comment_count">
+                    </option>
+                    {/* Comment count hasn't been implemented in the back end. */}
+              {/* <option key="comment_count" value="comment_count">
                 Comment Count
-              </option>
+              </option> */}
                 </select>
                 
             <label htmlFor="orderBy">Order By: </label>
