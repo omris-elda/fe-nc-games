@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import { LoggedIn } from './contexts/loggedin';
 import {
-  Header, NavBar, Reviews, Home, Categories, IndvReview, Login
+  Header, NavBar, ReviewList, Home, Categories, IndvReview, Login
 } from "./components";
 
 
@@ -19,9 +19,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/reviews" element={<ReviewList />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/reviews/category/:category" element={<Reviews />} />
+        <Route path="/reviews/category/:category" element={<ReviewList />} />
           <Route path="/reviews/:review_id" element={<IndvReview />} />
         <Route path="/login" element={<Login />} />
       </Routes>

@@ -4,25 +4,14 @@ const instance = axios.create({
     baseURL: 'https://omris-be-nc-games.herokuapp.com/api/',
 });
 
-export function getReviews(category, review_id) {
+export function getReviews(category, review_id, sortBy, orderBy) {
 
     let endpoint = "/reviews";
-
-    const params = {
-        category: category,
-        sortBy: "none",
-        orderBy: "asc",
-    }
-
-    // if (category) {
-    //     endpoint += `?category=${category}`
-    // }
-
     if (review_id) {
         endpoint += `/${review_id}`
     }
 
-    return instance.get(endpoint, {params})
+    return instance.get(endpoint, {params: { category: category, order: orderBy, sort_by: sortBy}})
         .then((res) => {
             return res.data;
         })
@@ -30,7 +19,6 @@ export function getReviews(category, review_id) {
             console.log(error);
     })
 }
-
 
 export function getCategories() {
     return instance.get("/categories")
