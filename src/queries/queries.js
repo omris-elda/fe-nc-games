@@ -77,13 +77,9 @@ export function postComment(newComment) {
 }
 
 export function deleteComment(comment_id) {
-    instance.delete(`comments/${comment_id}`)
+    return instance.delete(`comments/${comment_id}`)
         .then((res) => {
-            if (res.status === 204) {
-                return "Comment successfully deleted!";
-            } else {
-                return "Sorry, we were unable to delete your comment. Please refresh the page and try again."
-            }
+            return res.status;
     })
     .catch((error) => {
         console.log(error);
