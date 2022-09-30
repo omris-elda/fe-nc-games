@@ -75,11 +75,14 @@ export function getUsers() {
 }
 
 export function postComment(newComment) {
-    console.log(newComment)
     return instance.post(`reviews/${newComment.review_id}/comments`, newComment)
-    .then((res) => {
-        return res.data;
-    })
+        .then((res) => {
+            if (res.status === 201) {
+                return res.data;
+            } else {
+                console.log("Something has gone awry here!");
+            };
+        })
     .catch((error) => {
         console.log(error);
     })

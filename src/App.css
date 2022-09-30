@@ -188,10 +188,6 @@ ul {
   align-items: center;
 }
 
-.new-comment-label {
-  align-self: left;
-  text-align: left;
-}
 #new-comment-text {
   width: 100%;
   min-height: 5rem;

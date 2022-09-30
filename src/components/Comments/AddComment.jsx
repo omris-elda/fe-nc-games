@@ -21,7 +21,6 @@ export default function AddComment({ review_id, setComments }) {
     };
     postComment(newComment).then((response) => {
         setLoading(false);
-        console.log("Success!")
         setComments((currComments) => {
             newComment.author = loggedIn;
             newComment.votes = 0;
@@ -30,7 +29,6 @@ export default function AddComment({ review_id, setComments }) {
         })
     });
   };
-  // username: happyamy2016
     
   if (loggedIn === "") {
     return <h3><Link to="/login">Sorry, you have to be logged in to post a new comment.</Link></h3>;
