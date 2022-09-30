@@ -4,19 +4,16 @@ const instance = axios.create({
     baseURL: 'https://omris-be-nc-games.herokuapp.com/api/',
 });
 
-export function getReviews(category, review_id) {
+export function getReviews(category, review_id, sortBy, orderBy) {
 
     let endpoint = "/reviews";
-
+    
     const params = {
         category: category,
-        sortBy: "none",
-        orderBy: "asc",
+        sortBy: sortBy,
+        orderBy: orderBy,
     }
-
-    // if (category) {
-    //     endpoint += `?category=${category}`
-    // }
+    console.log(params)
 
     if (review_id) {
         endpoint += `/${review_id}`
