@@ -75,3 +75,17 @@ export function postComment(newComment) {
         console.log(error);
     })
 }
+
+export function deleteComment(comment_id) {
+    instance.delete(`comments/${comment_id}`)
+        .then((res) => {
+            if (res.status === 204) {
+                return "Comment successfully deleted!";
+            } else {
+                return "Sorry, we were unable to delete your comment. Please refresh the page and try again."
+            }
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+}

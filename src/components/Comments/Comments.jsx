@@ -16,6 +16,11 @@ export default function Comments(review_id) {
       });
     }, [review_id]);
   
+    const deleteComment = (e) => {
+      setLoading(true);
+      return null;
+    };
+  
     if (loading) {
         return (<h2>Loading...</h2>)
     } else {
