@@ -75,3 +75,13 @@ export function postComment(newComment) {
         console.log(error);
     })
 }
+
+export function deleteComment(comment_id) {
+    return instance.delete(`comments/${comment_id}`)
+        .then((res) => {
+            return res.status;
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+}
