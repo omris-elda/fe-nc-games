@@ -25,7 +25,11 @@ export default function ReviewCard({ review }) {
             <p className="review-text" id={review.review_id}>
               {review.review_body}
             </p>
-
+          </div>
+        </div>
+      </Link>
+        <div className="review-body">
+          <div className="review-inner">
             <Votes review_id={review.review_id} votes={review.votes} />
 
             <p className="review-comment-count">
@@ -33,17 +37,16 @@ export default function ReviewCard({ review }) {
             </p>
           </div>
         </div>
-      </Link>
-        <div className="review-footer">
-          <p className="review-author">
-            <Link to={`/users/${review.owner}`}>By: {review.owner}</Link>
-          </p>
-          <p className="review-category">
-            <Link to={`/reviews/category/${review.category}`}>
-              Category: {review.category}
-            </Link>
-          </p>
-        </div>
+      <div className="review-footer">
+        <p className="review-author">
+          <Link to={`/users/${review.owner}`}>By: {review.owner}</Link>
+        </p>
+        <p className="review-category">
+          <Link to={`/reviews/category/${review.category}`}>
+            Category: {review.category}
+          </Link>
+        </p>
+      </div>
       <hr />
     </div>
   );
