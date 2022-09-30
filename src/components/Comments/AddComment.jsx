@@ -20,12 +20,13 @@ export default function AddComment({ review_id, setComments }) {
       review_id: review_id.comment_id,
     };
     postComment(newComment).then((response) => {
+      console.log(response)
         setLoading(false);
         setComments((currComments) => {
             newComment.author = loggedIn;
             newComment.votes = 0;
             setNewCommentText("");
-            return [...currComments, newComment]
+            return [...currComments, response.comment]
         })
     });
   };
